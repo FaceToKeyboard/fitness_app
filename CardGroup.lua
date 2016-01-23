@@ -58,7 +58,7 @@ function CardGroup.newCardGroup()
 
 	mainGroup:insert(background)
 	
-	local myExerciseName = display.newText(self.exerciseName, 15,50,0,0,"DroidSans",20,"left")
+	local myExerciseName = display.newText(self.exerciseName, 15,50,0,0,"Fonts/Action_Man_Bold.ttf",20,"left")
 		myExerciseName:setFillColor( 0,0,0 )
 		myExerciseName.anchorX = 0
 		myExerciseName.anchorY = 1
@@ -66,7 +66,7 @@ function CardGroup.newCardGroup()
 	
 	mainGroup:insert(myExerciseName)
 
-	local mySetsWeightText = display.newText("Sets:\nWeight:", display.contentWidth*.65,50,0,0,"DroidSans-Bold",15,"left")
+	local mySetsWeightText = display.newText("Sets:\nWeight:", display.contentWidth*.65,50,0,0,"Fonts/Action_Man.ttf",15,"left")
 		mySetsWeightText:setFillColor( .2,.5,.4 )
 		mySetsWeightText.anchorX = 0
 		mySetsWeightText.anchorY = 1
@@ -74,7 +74,7 @@ function CardGroup.newCardGroup()
 
 	mainGroup:insert(mySetsWeightText)
 
-	local mySetsWeightNum = display.newText(tostring(self.numSets).."\n"..tostring(self.amtWeight), display.contentWidth*.85,50,0,0,"DroidSans-Bold",15,"left")
+	local mySetsWeightNum = display.newText(tostring(self.numSets).."\n"..tostring(self.amtWeight), display.contentWidth*.85,50,0,0,"Fonts/Action_Man.ttf",15,"left")
 		mySetsWeightNum:setFillColor( 0,.3,1 )
 		mySetsWeightNum.anchorX = 0
 		mySetsWeightNum.anchorY = 1

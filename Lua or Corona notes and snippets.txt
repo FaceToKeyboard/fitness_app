@@ -1,0 +1,29 @@
+Lua/Corona SDK notes and snippets:
+
+--Example of setting up a function and a listener to trigger/use it
+
+	function screenTap()
+		print("Tap sent to screen")
+	end
+
+	display.currentStage:addEventListener( "tap", screenTap )
+
+
+To avoid the use of global variables, while still maintaining the ability to persist
+data between scenes, you can create and require a simple lua file that contains something like:
+
+
+--dataStore.lua
+
+local M = {}
+return M
+
+That's it. Then just
+
+local myGlobalSpace = require("dataStore.lua")
+
+
+I got this info from the following article,
+and it also goes more in depth with why to avoid global variables:
+
+https://coronalabs.com/blog/2013/05/28/tutorial-goodbye-globals/
