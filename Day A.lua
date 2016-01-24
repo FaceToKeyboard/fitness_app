@@ -5,6 +5,9 @@
 
 This is the first interactive scene that users will encounter.
 
+You'll see regular use of the CardGroup class here, so you may want to open it and look into it at the same
+time you read through this; or consider reading over the CardGroup class first.
+
 **scene:create** uses the CardGroup object to create, intialize, and display the exercise information.
 	Each CardGroup is the rectangle that is displayed on the phone's display that contains the 
 exercise's name, set, rep, and weight info, and also has buttons that can be pressed to track immediate progress

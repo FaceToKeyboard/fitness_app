@@ -8,7 +8,7 @@ Lua/Corona SDK notes and snippets:
 
 	display.currentStage:addEventListener( "tap", screenTap )
 
-
+================
 To avoid the use of global variables, while still maintaining the ability to persist
 data between scenes, you can create and require a simple lua file that contains something like:
 
@@ -27,3 +27,54 @@ I got this info from the following article,
 and it also goes more in depth with why to avoid global variables:
 
 https://coronalabs.com/blog/2013/05/28/tutorial-goodbye-globals/
+===================
+Lua and functions
+
+Copy and pasted:
+
+Lua supports such uses of local functions with a syntactic sugar for them:
+
+    local function f (...)
+      ...
+    end
+    
+A subtle point arises in the definition of recursive local functions. The naive approach does not work here:
+
+    local fact = function (n)
+      if n == 0 then return 1
+      else return n*fact(n-1)   -- buggy
+      end
+    end
+
+When Lua compiles the call fact(n-1), in the function body, the local fact is not yet defined. Therefore, that expression calls a global fact, not the local one. To solve that problem, we must first define the local variable and then define the function:
+
+    local fact
+    fact = function (n)
+      if n == 0 then return 1
+      else return n*fact(n-1)
+      end
+    end
+
+Now the fact inside the function refers to the local variable. Its value when the function is defined does not matter; by the time the function executes, fact already has the right value. That is the way Lua expands its syntactic sugar for local functions, so you can use it for recursive functions without worrying:
+
+    local function fact (n)
+      if n == 0 then return 1
+      else return n*fact(n-1)
+      end
+    end
+
+Of course, this trick does not work if you have indirect recursive functions. In such cases, you must use the equivalent of an explicit forward declaration:
+
+    local f, g    -- `forward' declarations
+    
+    function g ()
+      ...  f() ...
+    end
+    
+    function f ()
+      ...  g() ...
+    end
+
+You can read more here:
+http://www.lua.org/pil/6.2.html
+
