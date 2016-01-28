@@ -169,7 +169,6 @@ function scene:show( event )
 	
 end
 
-
 --Store the scenes relevant information so it can be recalled/reapplied when returning. 
 --Exercise info, sets, reps, weight, and how many sets were completed (shown as buttons)
 function scene:hide( event )

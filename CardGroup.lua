@@ -272,9 +272,23 @@ function CardGroup.newCardGroup()
 		if event.phase == "began" then
 
 			print("setInfo test")
+
+			local options = {
+			    isModal = true,
+			    effect = "fade",
+			    time = 400,
+			    params = {
+			        sampleVar = "my sample variable"
+			    }
+			}
+
+			composer.showOverlay( "overlayTest", options )
 		end -- "began"
 		--Bring up overlay that let's user set/change Set and Rep numbers
+
 	end --self.set.info
+
+
 
 	--[[-------------
 
